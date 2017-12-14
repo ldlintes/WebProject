@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Assign Files{% endblock %}
+
+{% block head %}
+    <h1>Assign files to students</h1>
+{% endblock %}
+{% block body %}
+    <ul>
+        {% for file in fileList %}
+            <input type="checkbox" id="id_{{file}}" name="users" value="{file}}">
+            <label for="id_{{file}}">{{file}}</label>
+            <br>
+        {% endfor %}
+    </ul>
+    <button name="forwardBtn" onclick="move_forward()">Forward</button>
+{% endblock %}

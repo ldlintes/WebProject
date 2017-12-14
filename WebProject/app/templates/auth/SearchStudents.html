@@ -1,0 +1,35 @@
+{% extends "auth/DirectorMenu.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}List Students{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>List students</h1>
+</div>
+<div class="col-md-4">
+        <div>
+            <form action="" method="post" name="search_student_form">
+                {{ search_student_form.hidden_tag() }}
+                Professor: {{ search_student_form.title }}<br>
+                <div>
+                    <table>
+                        <tr>
+                            <th> First name </th>
+                            <th> Last name </th>
+                            <th> Email </th>
+                        </tr>
+                        {% for member in search_student_form.grid %}
+                        <tr>
+                            <td>{{ member.first_name }}</td>
+                            <td>{{ member.last_name }}</td>
+                            <td>{{ member.email }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <br>
+            </form>
+        </div>
+</div>
+{% endblock %}
